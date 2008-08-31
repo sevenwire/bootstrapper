@@ -91,6 +91,7 @@ Example
     b.run :production
 
 FactoryGirl [http://github.com/thoughtbot/factory_girl/tree/master](http://github.com/thoughtbot/factory_girl/tree/master)
+
 Forgery [http://github.com/sevenwire/forgery/tree/master](http://github.com/sevenwire/forgery/tree/master)
 
 Copyright (c) 2008 Sevenwire, released under the MIT license
