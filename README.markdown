@@ -90,7 +90,8 @@ Example
     b.run :users
     b.run :production
 
-Factory Girl <http://github.com/thoughtbot/factory_girl/tree/master>
-Forgery <http://github.com/sevenwire/forgery/tree/master>
+FactoryGirl:<http://github.com/thoughtbot/factory_girl/tree/master>
+
+Forgery:<http://github.com/sevenwire/forgery/tree/master>
 
 Copyright (c) 2008 [name of plugin creator], released under the MIT license
