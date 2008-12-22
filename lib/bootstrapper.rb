@@ -14,7 +14,11 @@ class Bootstrapper
 
   def self.truncate_tables(*tables)
     tables.each do |table|
-      table.to_s.classify.constantize.delete_all
+      sql("delete from #{table}")
     end
+  end
+
+  def self.sql(sql)
+    ActiveRecord::Base.connection.execute(sql)
   end
 end
