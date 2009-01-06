@@ -1,1 +1,1 @@
-require File.dirname(__FILE__) + '/lib/bootstrapper.rb'
+Dir.glob(File.dirname(__FILE__) + '/lib/**/*.rb').each {|f| require f }
