@@ -10,5 +10,15 @@ namespace :db do
     task :reset => 'db:migrate:reset' do
       Rake::Task['db:bootstrap'].invoke
     end
+
+    desc "Resets the rails environment"
+    task :reset_environment do
+      # Ripped directly out of railties/lib/console_app.rb in rails and
+      # only changed slightly.
+      puts "Reloading environment..."
+      dispatcher = ActionController::Dispatcher.new($stdout)
+      dispatcher.cleanup_application
+      dispatcher.reload_application
+    end
   end
 end
