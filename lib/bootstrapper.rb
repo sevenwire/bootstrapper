@@ -18,6 +18,11 @@ class Bootstrapper
     end
   end
 
+  def self.fixtures(*fixtures)
+    Fixtures.create_fixtures(File.join(RAILS_ROOT, 'db', 'populate'), fixtures)
+
+  end
+
   def self.sql(sql)
     ActiveRecord::Base.connection.execute(sql)
   end
