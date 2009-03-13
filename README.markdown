@@ -33,8 +33,6 @@ Example
 
   An example using Factory Girl:
 
-    require File.join(RAILS_ROOT, 'test', 'factories')
-
     Bootstrapper.for :development do |b|
       b.truncate_tables :addresses
       b.run :users
