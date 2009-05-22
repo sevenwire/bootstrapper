@@ -13,6 +13,16 @@ class Bootstrapper
   end
 
   def self.truncate_tables(*tables)
+    options = tables.last.is_a?(Hash) ? tables.pop : {}
+    if tables == [:all]
+      except = options[:except] || []
+      except = except.is_a?(Array) ? except.collect { |x| x.to_s } : [except.to_s]
+
+      tables = ActiveRecord::Base.connection.tables.select do |table|
+        table !~ /schema_(info|migrations)/ && !except.include?(table)
+      end
+    end
+
     tables.each do |table|
       ActiveRecord::Base.connection.truncate_table(table)
     end
