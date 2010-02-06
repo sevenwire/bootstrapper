@@ -1,4 +1,7 @@
 class Bootstrapper
+
+  VERSION = "0.1.0"
+
   class_inheritable_accessor :tasks
   write_inheritable_attribute :tasks, HashWithIndifferentAccess.new
 
