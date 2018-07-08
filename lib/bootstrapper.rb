@@ -1,6 +1,5 @@
 class Bootstrapper
-
-  VERSION = "0.1.0"
+  VERSION = '0.1.0'.freeze
 
   class_inheritable_accessor :tasks
   write_inheritable_attribute :tasks, HashWithIndifferentAccess.new
@@ -19,7 +18,7 @@ class Bootstrapper
     options = tables.last.is_a?(Hash) ? tables.pop : {}
     if tables == [:all]
       except = options[:except] || []
-      except = except.is_a?(Array) ? except.collect { |x| x.to_s } : [except.to_s]
+      except = except.is_a?(Array) ? except.collect(&:to_s) : [except.to_s]
 
       tables = ActiveRecord::Base.connection.tables.select do |table|
         table !~ /schema_(info|migrations)/ && !except.include?(table)
@@ -33,7 +32,6 @@ class Bootstrapper
 
   def self.fixtures(*fixtures)
     Fixtures.create_fixtures(File.join(RAILS_ROOT, 'db', 'populate'), fixtures)
-
   end
 
   def self.sql(sql)
